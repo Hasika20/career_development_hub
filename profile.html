@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+        }
+        .profile-header {
+            background-color: #0056b3;
+            color: #ffffff;
+            padding: 20px;
+            border-bottom: 2px solid #004080;
+            margin-bottom: 14px ;
+            margin-top: 10px;
+            padding-bottom: 4px;
+            border-radius: 5px;
+            margin-top: 10px white;
+        }
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 1px solid #ffffff;
+        }
+        .profile-name, .profile-role {
+            margin-top: 10px;
+        }
+        .profile-name {
+            font-size: 26px;
+            font-weight: bold;
+        }
+        .profile-role {
+            font-size: 20px;
+            color: #d1e0ff;
+        }
+        .section, .card {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .skills-list li, .interests-list li {
+            display: inline-block;
+            background-color: #17a2b8;
+            color: #ffffff;
+            padding: 5px 15px;
+            margin: 2px;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        .education-list li, .network-list li, .similar-profiles-list li {
+            padding: 10px;
+            border-bottom: 1px solid #e1e4e8;
+        }
+        .education-list li:last-child, .network-list li:last-child, .similar-profiles-list li:last-child {
+            border-bottom: none;
+        }
+      #chatBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        #chatBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chatbot popup styling */
+        #chatPopup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        #chatContent {
+            padding: 10px;
+        }
+
+        #chatInput {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #chatSendBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #chatSendBtn:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header text-center">
+            <img src="c:\Users\-\Downloads\profile.png" alt="Profile Picture" class="profile-picture">
+            <div class="profile-name">User Name</div>
+            <div class="profile-role">Software Engineer</div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="section">
+                    <h3>About</h3>
+                    <p>
+                        Experienced Software Engineer with a demonstrated history of working in the internet industry. Skilled in Full-Stack Development, Data Analysis, and AI technologies. Strong engineering professional with a Master's degree in Computer Science.
+                    </p>
+                </div>
+                <div class="section">
+                    <h3>Skills</h3>
+                    <ul class="skills-list">
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h3>Education</h3>
+                    <ul class="education-list">
+                        <li>B.S. in Computer Science from Stanford University (2015 - 2019)</li>
+                        <li>M.S. in Artificial Intelligence from MIT (2019 - 2021)</li>
+                    </ul>
+                </div>
+                <div class="section">
+                    <h3>Interests</h3>
+                    <ul class="interests-list">
+                        <li>Data Science</li>
+                        <li>Blockchain</li>
+                        <li>VR & AR</li>
+                        <li>IoT</li>
+                    </ul>
+                </div>
+               
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">My Network</h5>
+                        <ul class="network-list">
+                            <li>500+ Connections</li>
+                            <li>10 Recommendations</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">People You May Know</h5>
+                        <ul class="similar-profiles-list">
+                            <li>Friend1 - UI/UX Designer</li>
+                            <li>Friend2 - Data Analyst</li>
+                            <li>Friend3 - Cloud Specialist</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section">
+                <div class="progress mb-2">
+                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">Profile 75% Complete</div>
+                </div>
+                </div>
+                <div class="section" style="text-align: center;">
+                    <a href="sign_in.html" class="btn" style="background-color: #17a2b8; border-radius: 30px; color: white;">
+                        <b>Log Out</b>
+                    </a>
+
+                    <a href="dashboard.html" class="btn" style="background-color: #17a2b8; border-radius: 30px; color: white;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001m-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708z"/>
+                        </svg>  Dashboard
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  <button id="chatBtn">Chat</button>
+
+    <!-- Chatbot popup -->
+    <div id="chatPopup">
+        <div id="chatContent">
+            <p>Welcome! How can I assist you today?</p>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="chatSendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  document.getElementById('chatBtn').addEventListener('click', function() {
+            var chatPopup = document.getElementById('chatPopup');
+            chatPopup.style.display = chatPopup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Send message
+        document.getElementById('chatSendBtn').addEventListener('click', function() {
+            var messageInput = document.getElementById('chatInput');
+            var message = messageInput.value.trim();
+            if (message !== '') {
+                // Here you can handle the message, for now, let's just clear the input
+                messageInput.value = '';
+            }
+        });
+    document.getElementById('chatSendBtn').addEventListener('click', function() {
+    var messageInput = document.getElementById('chatInput');
+    var message = messageInput.value.trim();
+    if (message !== '') {
+        // Here you can handle the message, for now, let's just clear the input
+        messageInput.value = '';
+
+        // Hide the chatbot popup after sending the message
+        var chatPopup = document.getElementById('chatPopup');
+        chatPopup.style.display = 'none';
+    }
+});
+  </script>
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> About Us </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      .dropdown-menu .dropdown-item {
+            background-color: #343a40; /* Dropdown item background color */
+            color: #fff; /* Dropdown item text color */
+        }
+      .navbar-nav .nav-link {
+            color: #fff; /* Nav links color */
+        }
+      #chatBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        #chatBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chatbot popup styling */
+        #chatPopup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        #chatContent {
+            padding: 10px;
+        }
+
+        #chatInput {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #chatSendBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #chatSendBtn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#">
+            <img class="rounded" src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/careerCompass%20logo.webp?v=1713344017701" alt="Logo" width="40" height="35">
+            CareerCompass
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-light border border-light"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="./home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-light" href="./about_us.html">About Us</a>
+              </li>
+              <li class="nav-item">
+                        <a class="nav-link" href="interview_prep.html">Get Ready<br>For Interrview Here!</a>
+                    </li>
+              <li class="nav-item">
+                        <a class="nav-link" href="resume_builder.html">Build your<br>Resume</a>
+                    </li>
+              <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="connect.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Connect
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="connect.html">Alumni Connect</a>
+                          <a class="dropdown-item text-white" href="#">Interview Preparation</a>
+                        <a class="dropdown-item text-white" href="skill_dev.html">Skill Development</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item text-white" href="./feedback.html">Feedback and Review</a>
+                      </div>
+              </li>
+            </ul>
+          </div>
+          <div class="ml-auto">
+              <a href="profile.html">
+                  <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/profile.png?v=1713344006988" alt="Profile" width="55" height="50">
+              </a>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="row">
+            <div class="col">
+                <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/about%20us%20image.jpg?v=1713359717384" class="border border-dark mt-3" width="100%" height="30%" alt="career">
+                <p class="mt-3"> At CareerCompass, we are passionate about empowering individuals to reach their full potential
+                     in their careers. With a team of experienced professionals and industry experts, we strive to provide 
+                     comprehensive resources, personalized guidance, and innovative solutions to help you navigate your 
+                     career journey with confidence. Join us as we embark on a journey towards success together!</p>
+                <h3> Success stories of our students </h3>
+                <div class="card mb-3 border border-dark" style="max-width: 800px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/student1.jpg?v=1713359711341" width="60%" class="img-fluid rounded-start" alt="student1">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"> Aryan Saini </h5>
+                          <p class="text-secondary"> interning in Microsoft </p>
+                          <p class="card-text"> “My experience with CareerCompass was overall great, I could get my hands on 
+                            a decent number of opportunities, and finally got an internship through the same in Microsoft
+                            with a stipend of 75k per month.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card mb-3 border border-dark" style="max-width: 800px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/student2.jpg?v=1713359708121" width="60%" class="img-fluid rounded-start" alt="student1">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"> Anjali Sharma </h5>
+                          <p class="text-secondary"> placed in Salesforce </p>
+                          <p class="card-text"> “It was awesome. I used to get opportunities more relevant to my profile 
+                            and skill set. Also the team provided me with the regular updates on my applications. I would 
+                            definitely recommend CareerCompass to all of my peers looking for Job opportunities.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card mb-3 border border-dark" style="max-width: 800px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/student3.png?v=1713359701322" width="80%" class="img-fluid rounded-start" alt="student1">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"> Ramya </h5>
+                          <p class="text-secondary"> placed in Oracle </p>
+                          <p class="card-text"> “I can't thank CareerCompass enough for their invaluable assistance in 
+                            my job search journey. Their resume-building tools helped me create a professional and 
+                            polished resume that caught the attention of employers. The interview preparation resources 
+                            equipped me with the confidence and skills I needed to ace my interviews. Thanks to their 
+                            guidance and support.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="card mb-3 border border-dark" style="max-width: 800px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img src="https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/student4.bmp?v=1713359702650" width="80%" class="img-fluid rounded-start" alt="student1">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title"> Rakesh Solanki </h5>
+                          <p class="text-secondary"> placed in Salesforce </p>
+                          <p class="card-text"> “CareerCompass played a crucial role in helping me find career of my choice.
+                             As a recent graduate with limited experience, I was unsure where to begin my job search.
+                             Through CampusCareer, I was able to contact our alumini and their tips and suggestions helped
+                             me a lot. The career counseling sessions helped me identify my strengths and passions, 
+                             guiding me towards the perfect career fit. ”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+<button id="chatBtn">Chat</button>
+
+    <!-- Chatbot popup -->
+    <div id="chatPopup">
+        <div id="chatContent">
+            <p>Welcome! How can I assist you today?</p>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="chatSendBtn">Send</button>
+        </div>
+    </div>
+  <script>
+  document.getElementById('chatBtn').addEventListener('click', function() {
+            var chatPopup = document.getElementById('chatPopup');
+            chatPopup.style.display = chatPopup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Send message
+        document.getElementById('chatSendBtn').addEventListener('click', function() {
+            var messageInput = document.getElementById('chatInput');
+            var message = messageInput.value.trim();
+            if (message !== '') {
+                // Here you can handle the message, for now, let's just clear the input
+                messageInput.value = '';
+            }
+        });
+    document.getElementById('chatSendBtn').addEventListener('click', function() {
+    var messageInput = document.getElementById('chatInput');
+    var message = messageInput.value.trim();
+    if (message !== '') {
+        // Here you can handle the message, for now, let's just clear the input
+        messageInput.value = '';
+
+        // Hide the chatbot popup after sending the message
+        var chatPopup = document.getElementById('chatPopup');
+        chatPopup.style.display = 'none';
+    }
+});
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>

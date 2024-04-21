@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Dashboard</title>
+<style>
+  /* CSS for styling the dashboard */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f3f3; /* Set a background color for the body */
+  }
+  .container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff; /* Set a background color for the container */
+  }
+  .widget {
+    position: relative; /* Ensure relative positioning for progress bar */
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition for smoother hover effect */
+  }
+  .widget:hover {
+    background-color: #eaeaea; /* Change background color on hover */
+  }
+  .widget h2 {
+    margin-top: 0; /* Remove top margin for widget headings */
+    color: #333; /* Set color for widget headings */
+  }
+  .widget p {
+    display: none; /* Initially hide the answer */
+    color: #666; /* Set color for widget content */
+  }
+  .widget.active p {
+    display: block; /* Display the answer when widget is active */
+  }
+  .progress-bar {
+    width: 100%; /* Set width to fill widget */
+    height: 10px; /* Set height of progress bar */
+    position: absolute; /* Position within the widget */
+    bottom: 0; /* Align to the bottom of the widget */
+    left: 0; /* Align to the left */
+    background-color: #ddd; /* Background color for progress bar */
+    border-radius: 5px; /* Rounded corners */
+  }
+  .progress-indicator {
+    height: 100%; /* Fill the progress bar vertically */
+    background-color: #4caf50; /* Color of the progress indicator */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 0.5s ease-in-out; /* Add transition for smoother animation */
+  }
+  #chatBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        #chatBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chatbot popup styling */
+        #chatPopup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        #chatContent {
+            padding: 10px;
+        }
+
+        #chatInput {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #chatSendBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #chatSendBtn:hover {
+            background-color: #0056b3;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Dashboard</h1>
+  <div class="widget" onclick="toggleAnswer(this)" style="background-color: #f42323;">
+    <h2 style="color: #fff;"> MY COURSES</h2>
+    <p>Number of Courses Registered: <strong>5</strong></p>
+    <div class="progress-bar">
+      <div class="progress-indicator" style="width: 70%;"></div>
+    </div>
+  </div>
+  
+  <div class="widget" onclick="toggleAnswer(this)" style="background-color: #33308f;">
+    <h2 style="color: #fff;">SESSIONS</h2>
+    <p>Number of sessions attended: <strong>8</strong></p>
+    <div class="progress-bar">
+        <div class="progress-indicator" style="width: 70%;"></div>
+      </div>
+  </div>
+  <div class="widget" onclick="toggleAnswer(this)" style="background-color: #db1eb9;">
+    <h2 style="color: #fff;">RESUME</h2>
+    <p>Number of resumes created: <strong>8</strong></p>
+    <div class="progress-bar">
+        <div class="progress-indicator" style="width: 70%;"></div>
+      </div>
+  </div>
+  <div class="widget" onclick="toggleAnswer(this)" style="background-color: #03a9f4;">
+    <h2 style="color: #fff;">Student Progress</h2>
+    <p>Student has completed 70% of the course.</p>
+    <div class="progress-bar">
+        <div class="progress-indicator" style="width: 70%;"></div>
+      </div>
+  </div>
+  <!-- Add more widgets as needed -->
+</div>
+  <button id="chatBtn">Chat</button>
+
+    <!-- Chatbot popup -->
+    <div id="chatPopup">
+        <div id="chatContent">
+            <p>Welcome! How can I assist you today?</p>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="chatSendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  document.getElementById('chatBtn').addEventListener('click', function() {
+            var chatPopup = document.getElementById('chatPopup');
+            chatPopup.style.display = chatPopup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Send message
+        document.getElementById('chatSendBtn').addEventListener('click', function() {
+            var messageInput = document.getElementById('chatInput');
+            var message = messageInput.value.trim();
+            if (message !== '') {
+                // Here you can handle the message, for now, let's just clear the input
+                messageInput.value = '';
+            }
+        });
+    document.getElementById('chatSendBtn').addEventListener('click', function() {
+    var messageInput = document.getElementById('chatInput');
+    var message = messageInput.value.trim();
+    if (message !== '') {
+        // Here you can handle the message, for now, let's just clear the input
+        messageInput.value = '';
+
+        // Hide the chatbot popup after sending the message
+        var chatPopup = document.getElementById('chatPopup');
+        chatPopup.style.display = 'none';
+    }
+});
+  </script>
+</body>
+</html>
+
+<!-- JavaScript for interactive features -->
+<script>
+  function toggleAnswer(widget) {
+    widget.classList.toggle('active');
+  }
+</script>
+</body>
+</html>

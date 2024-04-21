@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Jobs Page</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .navbar {
+            background-color: #0056b3;
+        }
+        .navbar a {
+            color: #fff;
+        }
+        .job-search {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .company-list {
+            background-color: #e9ecef;
+            border-right: 1px solid #dee2e6;
+            height: 120vh;
+            padding-top: 20px;
+        }
+        .job-suggestions {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .btn-job {
+            margin: 5px;
+            color: #fff;
+            background-color: #17a2b8;
+            border: none;
+        }
+        .btn-job:hover {
+            background-color: #138496;
+        }
+        .footer {
+            background-color: #0056b3;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .job-listings {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .job-listing {
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .job-title {
+            font-weight: bold;
+        }
+        .job-apply-btn {
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+        }
+        .job-apply-btn:hover {
+            background-color: #138496;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <a class="navbar-brand" href="#">JobFinder</a>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 company-list">
+                <h4>Top Companies</h4>
+                <ul>
+                    <li><a href="#">Google</a></li>
+                    <li><a href="#">Amazon</a></li>
+                    <li><a href="#">Facebook</a></li>            
+                    <li><a href="#">Microsoft</a></li>
+                    <li><a href="#">Apple</a></li>
+                    <li><a href="#">IBM</a></li>
+                    <li><a href="#">Salesforce</a></li>
+                    <li><a href="#">Oracle</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <div class="job-search">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search jobs" aria-label="Search" style="width: 80%;">
+                        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="job-suggestions">
+                    <h5>Quick Search:</h5>
+                    
+                    <button type="button" class="btn btn-job" style="border-radius: 30px;">Software Engineer</button>
+                    <button type="button" class="btn btn-job" style="border-radius: 30px;">Data Analyst</button>
+                    <button type="button" class="btn btn-job" style="border-radius: 30px;">Product Manager</button>
+                    <button type="button" class="btn btn-job" style="border-radius: 30px;">Marketing Specialist</button>
+                    <button type="button" class="btn btn-job" style="border-radius: 30px;">Sales Executive</button>
+                </div>
+                <div class="job-listings">
+                    <h5>Featured Jobs:</h5>
+                    <div class="job-listing">
+                        <h6 class="job-title">Software Engineer</h6>
+                        <p>Company: ABC Tech</p>
+                        <button class="btn btn-sm job-apply-btn">Apply Now</button>
+                    </div>
+                    <div class="job-listing">
+                        <h6 class="job-title">Data Analyst</h6>
+                        <p>Company: XYZ Solutions</p>
+                        <button class="btn btn-sm job-apply-btn">Apply Now</button>
+                    </div>
+                    <div class="job-listing">
+                        <h6 class="job-title">Product Manager</h6>
+                        <p>Company: QRS Corp</p>
+                        <button class="btn btn-sm job-apply-btn">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© 2024 JobFinder. All rights reserved.</p>
+    </div>
+</body>
+</html>

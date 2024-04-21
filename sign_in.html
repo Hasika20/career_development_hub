@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In - CBIT Career Development</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://cdn.glitch.global/d0b008c6-173f-4506-92b9-2086e964d1f8/ABOUT_TAB--scaled.jpeg?v=1713343492869');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    width: 400px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-sizing: border-box;
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-bottom-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+    border-bottom-color: #007bff;
+  }
+  input::placeholder {
+    color: #999;
+  }
+  input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  .footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
+  .footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  #chatBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        #chatBtn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Chatbot popup styling */
+        #chatPopup {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            overflow: hidden;
+            z-index: 9999;
+        }
+
+        #chatContent {
+            padding: 10px;
+        }
+
+        #chatInput {
+            width: calc(100% - 20px);
+            margin: 0 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #chatSendBtn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #chatSendBtn:hover {
+            background-color: #0056b3;
+        }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Sign In</h1>
+  <form id="signInForm" onsubmit="return signIn()">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <input type="submit" value="Sign In">
+  </form>
+  <div class="footer">
+    Don't have an account? <a href="./sign_up.html">Sign Up</a>
+  </div>
+</div>
+  <button id="chatBtn">Chat</button>
+
+    <!-- Chatbot popup -->
+    <div id="chatPopup">
+        <div id="chatContent">
+            <p>Welcome! How can I assist you today?</p>
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button id="chatSendBtn">Send</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  document.getElementById('chatBtn').addEventListener('click', function() {
+            var chatPopup = document.getElementById('chatPopup');
+            chatPopup.style.display = chatPopup.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Send message
+        document.getElementById('chatSendBtn').addEventListener('click', function() {
+            var messageInput = document.getElementById('chatInput');
+            var message = messageInput.value.trim();
+            if (message !== '') {
+                // Here you can handle the message, for now, let's just clear the input
+                messageInput.value = '';
+            }
+        });
+    document.getElementById('chatSendBtn').addEventListener('click', function() {
+    var messageInput = document.getElementById('chatInput');
+    var message = messageInput.value.trim();
+    if (message !== '') {
+        // Here you can handle the message, for now, let's just clear the input
+        messageInput.value = '';
+
+        // Hide the chatbot popup after sending the message
+        var chatPopup = document.getElementById('chatPopup');
+        chatPopup.style.display = 'none';
+    }
+});
+  </script>
+</body>
+</html>
+
+<script>
+function signIn() {
+    // Your sign-in logic goes here
+    
+    // Redirect to home.html after successful sign-in
+    window.location.href = "home.html";
+    return false; // Prevent form submission
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume Builder</h1>
+    <form id="resumeForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="phone">Phone:</label><br>
+        <input type="tel" id="phone" name="phone" required><br><br>
+        <label for="address">Address:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+        <label for="summary">Summary:</label><br>
+        <textarea id="summary" name="summary" required></textarea><br><br>
+        <label for="education">Education:</label><br>
+        <textarea id="education" name="education" required></textarea><br><br>
+        <label for="experience">Experience:</label><br>
+        <textarea id="experience" name="experience" required></textarea><br><br>
+        <label for="skills">Skills:</label><br>
+        <textarea id="skills" name="skills"></textarea><br><br>
+        <label for="projects">Projects:</label><br>
+        <textarea id="projects" name="projects"></textarea><br><br>
+        <button type="button" onclick="generatePDF()">Generate PDF</button>
+    </form>
+
+    <!-- jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        function generatePDF() {
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const summary = document.getElementById('summary').value;
+            const education = document.getElementById('education').value;
+            const experience = document.getElementById('experience').value;
+            const skills = document.getElementById('skills').value;
+            const projects = document.getElementById('projects').value;
+
+            // Create a new jsPDF instance
+            const doc = new jsPDF();
+
+            // Set font size and text color
+            doc.setFontSize(16);
+            doc.setTextColor(0, 0, 0);
+
+            // Add content to the PDF
+            doc.text(`Name: ${name}`, 10, 20);
+            doc.text(`Email: ${email}`, 10, 30);
+            doc.text(`Phone: ${phone}`, 10, 40);
+            doc.text(`Address: ${address}`, 10, 50);
+            doc.text(`Summary: ${summary}`, 10, 60);
+            doc.text(`Education: ${education}`, 10, 70);
+            doc.text(`Experience: ${experience}`, 10, 80);
+            doc.text(`Skills: ${skills}`, 10, 90);
+            doc.text(`Projects: ${projects}`, 10, 100);
+
+            // Save the PDF
+            doc.save('resume.pdf');
+        }
+    </script>
+</body>
+</html>
